@@ -1,0 +1,85 @@
+﻿<Window x:Class="lab.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:lab"
+        mc:Ignorable="d"
+        Title="用户登录" Height="450" Width="800"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Red.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid MouseDown="Grid_MouseDown">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                <GradientStop Offset="1" Color="#61FA87"/>
+                <GradientStop Offset="0" Color="#F6FA4D"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Height="390" VerticalAlignment="Top" 
+                Background="#fff" CornerRadius="0 0 180 0">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Width="350">
+                    <Image Width="300" Height="300" Margin="30" 
+                           VerticalAlignment="Top" Stretch="Fill" Source="pack://application:,,,/lab;component/Images/login.png"/>
+                </StackPanel>
+                <StackPanel Width="350">
+                    <StackPanel Margin="20,40">
+                        <TextBlock Margin="20" FontFamily="Great Vibes"
+                                   FontSize="38" Foreground="Black" TextAlignment="Center">
+                            用户登录
+                        </TextBlock>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="25" Height="25" Foreground="Black"
+                                Kind="User"/>
+                            <TextBox x:Name="txtUserName" Width="250"
+                                     Margin="10,0" BorderBrush="Black"
+                                     CaretBrush="#61FA87" Foreground="Black"
+                                     SelectionBrush="#F6FA4D"
+                                     materialDesign:HintAssist.Hint="输入 用户名 / 邮箱"/>
+                        </StackPanel>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                 Width="25" Height="25" Foreground="Black"
+                                 Kind="Lock"/>
+                            <PasswordBox x:Name="txtPassword" Width="250"
+                                      Margin="10,0" BorderBrush="Black"
+                                      CaretBrush="#61FA87" Foreground="Black"
+                                      SelectionBrush="#F6FA4D"
+                                      materialDesign:HintAssist.Hint="********"/>
+                        </StackPanel>
+                        <StackPanel Margin="10" HorizontalAlignment="Center">
+                            <Button  x:Name="btnLogin" Width="100" Height="40"
+                                     materialDesign:ButtonAssist.CornerRadius="10"
+                                     Background="#16C854" BorderBrush="#6CE3FA" BorderThickness="2"
+                                     Content="登录" Foreground="Black" ToolTip="登录"
+                                     Style="{StaticResource MaterialDesignRaisedButton}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Width="100">
+                    <Button x:Name="btnExit" Margin="10,20" Background="{x:Null}"
+                            Click="btnExit_Click" Style="{StaticResource MaterialDesignFloatingActionButton}"
+                            
+                            ToolTip="关闭" Height="40" Width="40">
+                        <materialDesign:PackIcon Width="20" Height="20" 
+                                                 Foreground="Black" Kind="Close"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+        </Border>
+    </Grid>
+</Window>
